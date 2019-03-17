@@ -2,6 +2,7 @@ import DatabaseConnection from './utils/DatabaseConnection';
 import dotEnv from 'dotenv';
 import expressGraphQL from 'express-graphql';
 import cors from 'cors';
+const path = require('path');
 const express = require('express');
 const logger = require('morgan');
 
@@ -15,10 +16,6 @@ const app = express();
 
 app.use(logger('dev'));
 app.use(cors());
-
-//set index route
-const index = require('./routes/index');
-app.use('/', index);
 
 import schema from './graphql';
 // GraphqQL server route
