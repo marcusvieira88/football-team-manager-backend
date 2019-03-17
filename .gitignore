@@ -1,5 +1,7 @@
 # Logs
-data
+data/
+.idea/
+.idea
 logs
 *.log
 npm-debug.log*
