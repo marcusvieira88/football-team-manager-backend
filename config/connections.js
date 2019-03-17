@@ -9,9 +9,9 @@ class Config {
       STAGING: 'staging',
       PRODUCTION: 'production',
       environment: {
-        'development': {config: process.env.MONGODB_URI},
-        'staging': {config: process.env.MONGODB_URI},
-        'production': {config: process.env.MONGODB_URI}
+        'development': {config: 'mongodb://football-team-manager:HaYocZQFIcVXKXpW@football-team-manager-shard-00-00-h98dx.mongodb.net:27017,football-team-manager-shard-00-01-h98dx.mongodb.net:27017,football-team-manager-shard-00-02-h98dx.mongodb.net:27017/test?ssl=true&replicaSet=football-team-manager-shard-0&authSource=admin&retryWrites=true'},
+        'staging': {config: 'mongodb://football-team-manager:HaYocZQFIcVXKXpW@football-team-manager-shard-00-00-h98dx.mongodb.net:27017,football-team-manager-shard-00-01-h98dx.mongodb.net:27017,football-team-manager-shard-00-02-h98dx.mongodb.net:27017/test?ssl=true&replicaSet=football-team-manager-shard-0&authSource=admin&retryWrites=true'},
+        'production': {config: 'mongodb://football-team-manager:HaYocZQFIcVXKXpW@football-team-manager-shard-00-00-h98dx.mongodb.net:27017,football-team-manager-shard-00-01-h98dx.mongodb.net:27017,football-team-manager-shard-00-02-h98dx.mongodb.net:27017/test?ssl=true&replicaSet=football-team-manager-shard-0&authSource=admin&retryWrites=true'}
       }
     };
   }
