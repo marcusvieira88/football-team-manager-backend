@@ -1,5 +1,4 @@
 import InternalServerError from "../errors/InternalServerError";
-import config from "../../config/connections";
 import logger from "./Logger";
 import mongoose from "mongoose";
 
@@ -9,8 +8,8 @@ export default class DatabaseConnection {
      * Connect to the database
      */
     connect() {
-        const dbConfig = config.getDatabaseConfig().environment[process.env.NODE_ENV].config;
-        console.log(dbConfig)
+        const dbConfig = process.env.MONGODB_URI;
+        console.log(dbConfig);
         mongoose.connect(dbConfig, {useNewUrlParser: true});
 
         const db = mongoose.connection;
