@@ -1,6 +1,7 @@
 import {GraphQLID, GraphQLNonNull} from 'graphql';
 import visitorType from '../../types/visitor/visitor';
 import VisitorSchema from '../../../models/VisitorSchema';
+import Helpers from '../../../utils/Helpers';
 
 export default {
     type: visitorType,
@@ -11,6 +12,8 @@ export default {
         }
     },
     async resolve (root, params, options) {
+        Helpers.checkUserUnauthorized(context);
+
         const removedVisitor = await VisitorSchema
             .findByIdAndRemove(params._id)
             .exec();

@@ -1,6 +1,7 @@
 import {GraphQLBoolean, GraphQLNonNull} from 'graphql';
 import addressType from '../../types/address/insert-input-address';
 import AddressSchema from '../../../models/AddressSchema';
+import Helpers from '../../../utils/Helpers';
 
 export default {
     type: GraphQLBoolean,

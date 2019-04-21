@@ -1,6 +1,7 @@
 import {GraphQLBoolean, GraphQLNonNull} from 'graphql';
 import teamType from '../../types/user/update-input-user';
 import TeamSchema from '../../../models/TeamSchema';
+import Helpers from '../../../utils/Helpers';
 
 export default {
     type: GraphQLBoolean,

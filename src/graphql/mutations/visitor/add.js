@@ -1,6 +1,7 @@
 import {GraphQLBoolean, GraphQLNonNull} from 'graphql';
 import visitorType from '../../types/visitor/insert-input-visitor';
 import VisitorSchema from '../../../models/VisitorSchema';
+import Helpers from '../../../utils/Helpers';
 
 export default {
     type: GraphQLBoolean,
@@ -11,6 +12,8 @@ export default {
         }
     },
     async resolve(root, params, options) {
+        Helpers.checkUserUnauthorized(context);
+
         const visitorModel = new VisitorSchema(params.data);
         const newVisitor = await visitorModel.save();
 

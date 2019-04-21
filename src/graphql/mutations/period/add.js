@@ -1,6 +1,7 @@
 import {GraphQLBoolean, GraphQLNonNull} from 'graphql';
 import periodType from '../../types/period/insert-input-period';
 import PeriodSchema from '../../../models/PeriodSchema';
+import Helpers from '../../../utils/Helpers';
 
 export default {
     type: GraphQLBoolean,

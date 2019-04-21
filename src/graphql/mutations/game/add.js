@@ -1,6 +1,7 @@
 import {GraphQLBoolean, GraphQLNonNull} from 'graphql';
 import gameType from '../../types/game/insert-input-game';
 import GameSchema from '../../../models/GameSchema';
+import Helpers from '../../../utils/Helpers';
 
 export default {
     type: GraphQLBoolean,

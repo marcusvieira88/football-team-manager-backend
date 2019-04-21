@@ -1,6 +1,7 @@
 import {GraphQLID, GraphQLNonNull} from 'graphql';
 import playerType from '../../types/player/player';
 import PlayerSchema from '../../../models/PlayerSchema';
+import Helpers from '../../../utils/Helpers';
 
 export default {
     type: playerType,

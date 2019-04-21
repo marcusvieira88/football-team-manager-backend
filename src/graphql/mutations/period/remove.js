@@ -1,6 +1,7 @@
 import {GraphQLID, GraphQLNonNull} from 'graphql';
 import periodType from '../../types/period/period';
 import PeriodSchema from '../../../models/PeriodSchema';
+import Helpers from '../../../utils/Helpers';
 
 export default {
     type: periodType,

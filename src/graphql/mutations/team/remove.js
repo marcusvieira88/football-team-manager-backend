@@ -1,6 +1,7 @@
 import {GraphQLID, GraphQLNonNull} from 'graphql';
 import teamType from '../../types/team/team';
 import TeamSchema from '../../../models/TeamSchema';
+import Helpers from '../../../utils/Helpers';
 
 export default {
     type: teamType,

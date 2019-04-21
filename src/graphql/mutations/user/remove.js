@@ -1,6 +1,7 @@
 import {GraphQLID, GraphQLNonNull} from 'graphql';
 import userType from '../../types/user/user';
 import UserSchema from '../../../models/UserSchema';
+import Helpers from '../../../utils/Helpers';
 
 export default {
     type: userType,
