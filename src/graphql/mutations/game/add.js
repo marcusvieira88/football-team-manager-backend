@@ -11,6 +11,8 @@ export default {
         }
     },
     async resolve(root, params, options) {
+        Helpers.checkUserUnauthorized(context);
+
         const gameModel = new GameSchema(params.data);
         const newGame = await gameModel.save();
 

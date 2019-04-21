@@ -11,9 +11,11 @@ export default {
         }
     },
     async resolve(root, params, options) {
+        Helpers.checkUserUnauthorized(context);
+
         const removedPeriod = await PeriodSchema
-            .findByIdAndRemove(params._id)
-            .exec();
+            .findOneAndUpdate({_id: params._id, deleted_at:{$exists: false}},
+                {$set:{deleted_at:new Date()}},{new: 'true'});
 
         if (!removedPeriod) {
             throw new Error('Error removing period');

@@ -18,6 +18,14 @@ const UserSchema = new mongoose.Schema({
             maxlength: 100,
             minlength: 0
         },
+        hash: {
+            type: String,
+            maxlength: 100,
+            minlength: 0
+        },
+        email_confirmed_at: {
+            type: Date
+        },
         roles: [{
                 type: String,
                 maxlength: 200,

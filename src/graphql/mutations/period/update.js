@@ -11,6 +11,8 @@ export default {
         }
     },
     async resolve (root, params, options) {
+        Helpers.checkUserUnauthorized(context);
+
         const updatedPeriod = await PeriodSchema.findOneAndUpdate(
             params.data.id, params.data);
 

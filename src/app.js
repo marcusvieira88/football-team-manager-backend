@@ -2,7 +2,7 @@ import DatabaseConnection from './utils/DatabaseConnection';
 import dotEnv from 'dotenv';
 import expressGraphQL from 'express-graphql';
 import cors from 'cors';
-const path = require('path');
+import jwt from "express-jwt";
 const express = require('express');
 const logger = require('morgan');
 
@@ -14,12 +14,26 @@ new DatabaseConnection().connect();
 
 const app = express();
 
+const allowedOrigins = ['http://localhost:3000',
+    'http://yourapp.com'];
+
 app.use(logger('dev'));
 app.use(cors());
 
+const authMiddleware = jwt({
+    secret: process.env.JWT_SECRET,
+    credentialsRequired: false
+});
+
+app.use(authMiddleware);
+
+//ROUTES
+//app.use('/', require('./routes/index'));
+//app.use('/', require('./routes/userEmailConfirmation'));
+
 import schema from './graphql';
 // GraphqQL server route
-app.use('/graphql', expressGraphQL(req => ({
+app.use('/graphql/v1/', expressGraphQL(req => ({
     schema,
     pretty: true,
     graphiql: true
@@ -27,7 +41,6 @@ app.use('/graphql', expressGraphQL(req => ({
 
 // start server
 const PORT = process.env.PORT || '3000';
-// start server
 let server = app.listen(PORT, function () {
     var host = server.address().address;
     var port = server.address().port;

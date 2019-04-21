@@ -11,6 +11,8 @@ export default {
         }
     },
     async resolve(root, params, options) {
+        Helpers.checkUserUnauthorized(context);
+
         const addressModel = new AddressSchema(params.data);
         const newAddress = await addressModel.save();
 

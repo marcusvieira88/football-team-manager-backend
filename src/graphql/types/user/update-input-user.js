@@ -9,17 +9,14 @@ export default new GraphQLInputObjectType({
         name: {
             type: GraphQLString
         },
-        password: {
+        email: {
             type: GraphQLString
         },
-        email: {
+        password: {
             type: GraphQLString
         },
         roles: {
             type: new GraphQLList(GraphQLString)
-        },
-        description: {
-            type: GraphQLString
         }
     }
 });

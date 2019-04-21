@@ -9,17 +9,14 @@ export default new GraphQLObjectType({
         name: {
             type: new GraphQLNonNull(GraphQLString)
         },
-        password: {
+        email: {
             type: new GraphQLNonNull(GraphQLString)
         },
-        email: {
+        password: {
             type: new GraphQLNonNull(GraphQLString)
         },
         roles: {
             type: new GraphQLList(GraphQLString)
-        },
-        description: {
-            type: GraphQLString
         }
     }
 });

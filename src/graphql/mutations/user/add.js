@@ -11,6 +11,8 @@ export default {
         }
     },
     async resolve(root, params, options) {
+        Helpers.checkUserUnauthorized(context);
+
         const userModel = new UserSchema(params.data);
         const newUser = await userModel.save();
 

@@ -11,14 +11,15 @@ export default {
         }
     },
     async resolve(root, params, options) {
+      Helpers.checkUserUnauthorized(context);
+
         const removedUser = await UserSchema
-            .findByIdAndRemove(params._id)
-            .exec();
+            .findOneAndUpdate({_id: params._id, deleted_at:{$exists: false}},
+                {$set:{deleted_at:new Date()}},{new: 'true'});
 
         if (!removedUser) {
             throw new Error('Error removing user');
         }
-
         return removedUser;
     }
 };

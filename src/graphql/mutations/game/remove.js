@@ -11,9 +11,11 @@ export default {
         }
     },
     async resolve (root, params, options) {
+        Helpers.checkUserUnauthorized(context);
+
         const removedGame = await GameSchema
-            .findByIdAndRemove(params._id)
-            .exec();
+            .findOneAndUpdate({_id: params._id, deleted_at:{$exists: false}},
+                {$set:{deleted_at:new Date()}},{new: 'true'});
 
         if (!removedGame) {
             throw new Error('Error removing game');

@@ -1,7 +1,7 @@
 import {GraphQLInputObjectType, GraphQLList, GraphQLNonNull, GraphQLString} from 'graphql';
 
 export default new GraphQLInputObjectType({
-    name: 'UserInsertInput',
+    name: 'SignUpUser',
     fields: {
         name: {
             type: new GraphQLNonNull(GraphQLString)
@@ -11,9 +11,6 @@ export default new GraphQLInputObjectType({
         },
         password: {
             type: new GraphQLNonNull(GraphQLString)
-        },
-        roles: {
-            type: new GraphQLList(GraphQLString)
         }
     }
 });

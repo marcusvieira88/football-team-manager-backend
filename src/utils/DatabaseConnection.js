@@ -9,7 +9,7 @@ export default class DatabaseConnection {
      */
     connect() {
         const dbConfig = process.env.MONGODB_URI;
-        console.log(dbConfig);
+        logger.info(dbConfig);
         mongoose.connect(dbConfig, {useNewUrlParser: true});
 
         const db = mongoose.connection;

@@ -11,6 +11,8 @@ export default {
         }
     },
     async resolve (root, params, options) {
+        Helpers.checkUserUnauthorized(context);
+
         const playerModel = new PlayerSchema(params.data);
         const newPlayer = await playerModel.save();
 

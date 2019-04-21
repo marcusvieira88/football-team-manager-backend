@@ -11,6 +11,8 @@ export default {
         }
     },
     async resolve(root, params, options) {
+        Helpers.checkUserUnauthorized(context);
+
         const updatedPlayer = await PlayerSchema.findOneAndUpdate(
             params.data.id, params.data);
 
